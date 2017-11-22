@@ -3,7 +3,7 @@
 namespace eCorp.WebStore.OrderService.Domain.Models
 {
     [Serializable]
-    public class ShippableProduct
+    public class ShippableProduct : BaseEntity
     {
         public string Name { get; set; }
 

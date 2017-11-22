@@ -6,4 +6,8 @@
     <RootNamespace>eCorp.WebStore.OrderService.Domain</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.4.4" />
+  </ItemGroup>
+
 </Project>

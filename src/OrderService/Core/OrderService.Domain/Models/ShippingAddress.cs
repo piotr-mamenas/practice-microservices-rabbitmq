@@ -1,6 +1,6 @@
 ﻿namespace eCorp.WebStore.OrderService.Domain.Models
 {
-    public class DeliveryAddress : BaseEntity
+    public class ShippingAddress : BaseEntity
     {
         public string Salutation { get; set; }
 

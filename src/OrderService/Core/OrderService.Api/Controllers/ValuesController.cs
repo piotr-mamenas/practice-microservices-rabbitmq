@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace eCorp.WebStore.OrderService.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/orders")]
     public class ValuesController : Controller
     {
         // GET api/values
