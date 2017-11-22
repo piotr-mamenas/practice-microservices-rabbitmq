@@ -1,4 +1,5 @@
-﻿using eCorp.WebStore.OrderService.Domain.Models;
+﻿using System;
+using eCorp.WebStore.OrderService.Domain.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
@@ -12,11 +13,22 @@ namespace eCorp.WebStore.OrderService.DAL
         /// The constructor of the primary service context
         /// </summary>
         /// <param name="settings">Contains the database connection settings</param>
-        public OrderServiceContext(IOptions<ConnectionSettings> settings)
+        public OrderServiceContext(ConnectionSettings settings)
         {
-            var client = new MongoClient(settings.Value.ConnectionString);
+            if (string.IsNullOrWhiteSpace(settings.ConnectionString))
+            {
+                throw new ArgumentNullException();
+            }
 
-            _database = client.GetDatabase(settings.Value.Database);
+            if (string.IsNullOrWhiteSpace(settings.Database))
+            {
+                throw new ArgumentNullException();
+            }
+
+            MongoDefaults.GuidRepresentation = MongoDB.Bson.GuidRepresentation.Standard;
+            var client = new MongoClient(settings.ConnectionString);
+
+            _database = client.GetDatabase(settings.Database);
         }
 
         /// <summary>

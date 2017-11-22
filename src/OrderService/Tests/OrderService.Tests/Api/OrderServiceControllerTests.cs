@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace OrderService.Tests.Api
+namespace eCorp.WebStore.OrderService.Tests.Api
 {
     [TestFixture]
     public class OrderServiceControllerTests
