@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssemblyName>eCorp.WebStore.OrderService.DAL</AssemblyName>
+    <RootNamespace>eCorp.WebStore.OrderService.DAL</RootNamespace>
+  </PropertyGroup>
+
+</Project>
