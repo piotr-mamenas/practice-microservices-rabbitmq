@@ -7,6 +7,8 @@ namespace eCorp.WebStore.OrderService.Domain.Models
     {
         public decimal PaymentAmount { get; set; }
 
+        public string CurrencyCode { get; set; }
+
         public int PaymentDaysTerms { get; set; }
 
         public bool IsPaid { get; set; }

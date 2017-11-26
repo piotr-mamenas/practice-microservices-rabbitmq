@@ -1,4 +1,4 @@
-﻿namespace eCorp.WebStore.OrderService.DAL
+﻿namespace eCorp.WebStore.OrderService.Infrastructure.DataAccess
 {
     public class ConnectionSettings
     {

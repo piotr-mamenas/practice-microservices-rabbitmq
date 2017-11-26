@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using eCorp.WebStore.OrderService.Domain.Interfaces;
 using eCorp.WebStore.OrderService.Domain.Models;
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace eCorp.WebStore.OrderService.DAL
+namespace eCorp.WebStore.OrderService.Infrastructure.DataAccess
 {
     public class OrderRepository : IOrderRepository
     {

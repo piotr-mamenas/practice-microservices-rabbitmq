@@ -1,12 +1,14 @@
 ﻿using System;
-using eCorp.WebStore.OrderService.DAL;
 using eCorp.WebStore.OrderService.Domain.Enums;
 using eCorp.WebStore.OrderService.Domain.Interfaces;
 using eCorp.WebStore.OrderService.Domain.Models;
+using eCorp.WebStore.OrderService.Infrastructure.DataAccess;
 using NUnit.Framework;
 
-namespace eCorp.WebStore.OrderService.Tests.DAL
+namespace eCorp.WebStore.OrderService.Tests
 {
+
+
     [TestFixture]
     public class OrderRepositoryTests
     {

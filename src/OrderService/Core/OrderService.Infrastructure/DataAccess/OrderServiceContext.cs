@@ -1,9 +1,8 @@
 ﻿using System;
 using eCorp.WebStore.OrderService.Domain.Models;
-using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 
-namespace eCorp.WebStore.OrderService.DAL
+namespace eCorp.WebStore.OrderService.Infrastructure.DataAccess
 {
     public class OrderServiceContext
     {
