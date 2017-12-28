@@ -11,9 +11,14 @@ namespace eCorp.WebStore.OrderService.Infrastructure.DataAccess
         /// <summary>
         /// The constructor of the primary service context
         /// </summary>
-        /// <param name="settings">Contains the database connection settings</param>
-        public OrderServiceContext(ConnectionSettings settings)
+        public OrderServiceContext()
         {
+            var settings = new ConnectionSettings
+            {
+                ConnectionString = "mongodb://localhost",
+                Database = "OrderService"
+            };
+
             if (string.IsNullOrWhiteSpace(settings.ConnectionString))
             {
                 throw new ArgumentNullException();

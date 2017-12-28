@@ -5,10 +5,8 @@ using eCorp.WebStore.OrderService.Domain.Models;
 using eCorp.WebStore.OrderService.Infrastructure.DataAccess;
 using NUnit.Framework;
 
-namespace eCorp.WebStore.OrderService.Tests
+namespace eCorp.WebStore.OrderService.Tests.Integration
 {
-
-
     [TestFixture]
     public class OrderRepositoryTests
     {
@@ -16,11 +14,7 @@ namespace eCorp.WebStore.OrderService.Tests
 
         public OrderRepositoryTests()
         {
-            var context = new OrderServiceContext(new ConnectionSettings
-            {
-                ConnectionString = "mongodb://localhost",
-                Database = "OrderService"
-            });
+            var context = new OrderServiceContext();
 
             _repository = new OrderRepository(context);
         }
