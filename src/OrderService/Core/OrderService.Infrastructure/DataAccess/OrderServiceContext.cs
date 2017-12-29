@@ -6,11 +6,8 @@ namespace eCorp.WebStore.OrderService.Infrastructure.DataAccess
 {
     public class OrderServiceContext
     {
-        private readonly IMongoDatabase _database = null;
+        private readonly IMongoDatabase _database;
 
-        /// <summary>
-        /// The constructor of the primary service context
-        /// </summary>
         public OrderServiceContext()
         {
             var settings = new ConnectionSettings
@@ -34,16 +31,14 @@ namespace eCorp.WebStore.OrderService.Infrastructure.DataAccess
 
             _database = client.GetDatabase(settings.Database);
         }
+        
+        public IMongoCollection<ShipmentOrder> ShipmentOrders => 
+            _database.GetCollection<ShipmentOrder>("ShipmentOrders");
+        
+        public IMongoCollection<PurchaseOrder> PurchaseOrders => 
+            _database.GetCollection<PurchaseOrder>("PurchaseOrders");
 
-        /// <summary>
-        /// The collection of persisted orders
-        /// </summary>
-        public IMongoCollection<Order> Orders
-        {
-            get
-            {
-                return _database.GetCollection<Order>("Orders");
-            }
-        }
+        public IMongoCollection<ServiceParameters> ServiceParameters =>
+            _database.GetCollection<ServiceParameters>("ServiceParameters");
     }
 }

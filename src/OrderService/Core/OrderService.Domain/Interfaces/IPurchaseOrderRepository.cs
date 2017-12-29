@@ -2,7 +2,7 @@
 
 namespace eCorp.WebStore.OrderService.Domain.Interfaces
 {
-    public interface IOrderRepository : IRepository<Order>
+    public interface IPurchaseOrderRepository : IRepository<PurchaseOrder>
     {
     }
 }

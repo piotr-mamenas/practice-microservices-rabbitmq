@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using eCorp.WebStore.OrderService.Domain;
 using eCorp.WebStore.OrderService.Domain.Enums;
@@ -12,13 +11,28 @@ namespace eCorp.WebStore.OrderService.Api.Controllers
     [Route("api/orders")]
     public class OrdersController : Controller
     {
-        private readonly IRepository<Order> _orders;
+        private readonly IRepository<ShipmentOrder> _shipmentOrders;
+        private readonly IRepository<PurchaseOrder> _purchaseOrders;
 
-        public OrdersController(IOrderRepository repository)
+        public OrdersController(IPurchaseOrderRepository purchasesRepository
+            ,IShipmentOrderRepository shipmentsRepository)
         {
-            _orders = repository;
+            _shipmentOrders = shipmentsRepository;
+            _purchaseOrders = purchasesRepository;
         }
-        
+
+        [HttpPost, Route("purchase")]
+        public async Task<IActionResult> PlacePurchase(PurchaseOrder order)
+        {
+            var orderInDb = await _purchaseOrders.GetAsync(order.Id);
+
+            if (orderInDb == null)
+            {
+                await _purchaseOrders.AddAsync(order);
+            }
+            return Ok();
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -36,32 +50,11 @@ namespace eCorp.WebStore.OrderService.Api.Controllers
                 UpdatedOn = DateTime.Now
             };
 
-            await _orders.AddAsync(order);
+            await _purchaseOrders.AddAsync(order);
             
-            var orderInDb = await _orders.GetAsync(order.Id);
+            var orderInDb = await _purchaseOrders.GetAsync(order.Id);
 
             return Json(orderInDb);
-        }
-        
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-        
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-        
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-        
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

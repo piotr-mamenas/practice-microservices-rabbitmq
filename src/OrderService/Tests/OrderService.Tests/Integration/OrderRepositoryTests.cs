@@ -10,13 +10,13 @@ namespace eCorp.WebStore.OrderService.Tests.Integration
     [TestFixture]
     public class OrderRepositoryTests
     {
-        private readonly IOrderRepository _repository;
+        private readonly IPurchaseOrderRepository _repository;
 
         public OrderRepositoryTests()
         {
             var context = new OrderServiceContext();
 
-            _repository = new OrderRepository(context);
+            _repository = new PurchaseOrderRepository(context);
         }
 
         [SetUp]

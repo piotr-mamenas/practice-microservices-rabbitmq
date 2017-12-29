@@ -22,7 +22,8 @@ namespace eCorp.WebStore.OrderService.Api
             services.AddMvc();
 
             services.AddSingleton<OrderServiceContext>();
-            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IPurchaseOrderRepository, PurchaseOrderRepository>();
+            services.AddScoped<IShipmentOrderRepository, ShipmentOrderRepository>();
 
         }
 

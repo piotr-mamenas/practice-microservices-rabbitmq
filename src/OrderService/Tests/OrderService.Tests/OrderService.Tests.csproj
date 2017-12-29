@@ -20,8 +20,4 @@
     <ProjectReference Include="..\..\Core\OrderService.Infrastructure\OrderService.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Unit\" />
-  </ItemGroup>
-
 </Project>
